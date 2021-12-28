@@ -1,0 +1,283 @@
+<div class="col-12">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" value="{{this.emp_id}}" placeholder="Employee ID"
+            name="emp_id" maxlength="7" required>
+        <label for="floatingInput">Employee ID</label>
+    </div>
+</div>
+
+<!--- for adding profile picture 
+<div class="col-6">
+    <div class="mb-3">
+        <input type="file" class="form-control" value="{{this.profile_image}}" name="profile_image" accept="image/*" />
+        <label>Upload Profile Photo</label>
+    </div>
+</div>
+-->
+
+<div class="col-4">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" value="{{this.first_name}}" placeholder="First Name"
+            name="first_name" required>
+        <label for="floatingInput">First Name</label>
+    </div>
+</div>
+<div class="col-4">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" value="{{this.middle_name}}"
+            placeholder="Middle Name" name="middle_name">
+        <label for="floatingInput">Middle Name</label>
+    </div>
+</div>
+<div class="col-4">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" value="{{this.last_name}}" placeholder="Last Name"
+            name="last_name" required>
+        <label for="floatingInput">Last Name</label>
+    </div>
+</div>
+
+<div class="col-6">
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" value="{{this.email}}" placeholder="email@email.com"
+            name="email" required>
+        <label for="floatingInput">Email</label>
+    </div>
+</div>
+<div class="col-6">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" value="{{this.phone}}" placeholder="Phone"
+            name="phone" pattern="[0-9]{11}" maxlength="11" required onkeypress='validate(event)'>
+        <label for="floatingInput">Mobile Number (11-Digits | 09xx-xxx-xxxx)</label>
+    </div>
+</div>
+<div class="col-12">
+    <div class="form-floating mb-3">
+        <textarea class="form-control" id="address" placeholder="Address" name="address"
+            style="height: 100px">{{this.address}}</textarea>
+        <label for="floatingInput">Address</label>
+    </div>
+</div>
+
+<div class="col-4">
+    <div class="form-floating">
+        <select class="form-select" id="sex" name="sex" aria-label="Floating label select example">
+            <option value="{{this.sex}}" hidden="hidden" selected>{{this.sex}}</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <label for="floatingSelectGrid">Sex</label>
+    </div>
+</div>
+
+
+<div class="col-4">
+    <div class="form-floating mb-3">
+        <input type="date" id="dob" name="dob" class="form-control" value="{{this.dob}}">
+        <label for="birthday">Birthday:</label>
+    </div>
+</div>
+
+<div class="col-4">
+    <div class="form-floating">
+        <select class="form-select" id="civil_status" name="civil_status" aria-label="Floating label select example">
+            <option value="{{this.civil_status}}" hidden="hidden" selected>{{this.civil_status}}</option>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Widow/Widower">Widow/Widower</option>
+            <option value="Separated/Annulled">Separated/Annulled</option>
+            <option value="Living with Partner">Living with Partner</option>
+        </select>
+        <label for="floatingSelectGrid">Civil Status</label>
+    </div>
+</div>
+
+
+<section class="faq-section">
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="accordion accordion-flush" id="faqlist1">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq-content-1">
+                                Spouse Details
+                            </button>
+                        </h2>
+                        <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput"
+                                                value="{{this.sp_firstname}}" placeholder="First Name"
+                                                name="sp_firstname">
+                                            <label for="floatingInput">First Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput"
+                                                value="{{this.sp_middlename}}" placeholder="Middle Name"
+                                                name="sp_middlename">
+                                            <label for="floatingInput">Middle Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput"
+                                                value="{{this.sp_lastname}}" placeholder="Last Name" name="sp_lastname">
+                                            <label for="floatingInput">Last Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput"
+                                                value="{{this.sp_contact}}" placeholder="Contact Number"
+                                                name="sp_contact" pattern="[0-9]{11}" maxlength="11">
+                                            <label for=" floatingInput">Contact Number (11-Digits |
+                                                09xx-xxx-xxxx)</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput"
+                                                value="{{this.sp_officename}}" placeholder="Office Name"
+                                                name="sp_officename">
+                                            <label for="floatingInput">Office Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq-content-2">
+                                Employment Details
+                            </button>
+                        </h2>
+                        <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput"
+                                                value="{{this.appointment}}" placeholder="Appointment"
+                                                name="appointment">
+                                            <label for="floatingInput">Appointment</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput"
+                                                value="{{this.position}}" placeholder="Position" name="position">
+                                            <label for="floatingInput">Position</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput"
+                                                value="{{this.salary_grade}}" placeholder="Salary Grade"
+                                                name="salary_grade">
+                                            <label for="floatingInput">Salary Grade</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="date" id="doe" name="doe" class="form-control"
+                                                value="{{this.doe}}">
+                                            <label for="birthday">Date of Employment</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="date" id="ldoe" name="ldoe" class="form-control"
+                                                value="{{this.ldoe}}">
+                                            <label for="birthday">Last Date of Employment</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput"
+                                                value="{{this.eligible}}" placeholder="Eligible" name="eligible">
+                                            <label for="floatingInput">Eligible</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput"
+                                                value="{{this.eligibility}}" placeholder="Elegibility Type"
+                                                name="eligibility">
+                                            <label for="floatingInput">Elegibility Type</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq-content-3">
+                            Benefits Details
+                        </button>
+                    </h2>
+                    <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput"
+                                            value="{{this.tin_num}}" placeholder="TIN Number" name="tin_num">
+                                        <label for="floatingInput">TIN Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput"
+                                            value="{{this.philhealth}}" placeholder="PhilHealth Number"
+                                            name="philhealth">
+                                        <label for="floatingInput">PhilHealth Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput"
+                                            value="{{this.pagibig}}" placeholder="Pag-Ibig Number" name="pagibig">
+                                        <label for="floatingInput">Pag-Ibig Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" value="{{this.gsis}}"
+                                            placeholder="GSIS Number" name="gsis">
+                                        <label for="floatingInput">GSIS Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" value="{{this.sss}}"
+                                            placeholder="SSS Number" name="sss">
+                                        <label for="floatingInput">SSS Number</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+<center>
+    <div class="col-10 d-grid align-center">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+    <br><br>
+</center>

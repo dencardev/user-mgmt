@@ -1,0 +1,54 @@
+<h1>JO Contribution</h1>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">JO Contribution Summary</li>
+    </ol>
+</nav>
+
+<br>
+
+<div class="col-12 d-flex justify-content-end">
+    <form class='d-flex col-4' method="POST" action="/" novalidate>
+        <input class='form-control' type='text' placeholder='Search Name of Employee' name="search"
+            aria-label='Search Name of Employee' id="myInputContriSummary" onkeyup="myFunctionContriSummary()" />
+    </form>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped display" id="contri_table_summary" summary="Pioneer">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col" onclick="sorting(tbody01, 1)" style="width: auto !important">Emp_ID<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 2)" style="width: auto !important">Full Name<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 3)" style="width: auto !important">Position<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 3)" style="width: auto !important">Contribution Type<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 3)" style="width: auto !important">Amount<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+            </tr>
+        </thead>
+        <tbody id="tbody01">
+            {{#each rows}}
+            <tr>
+                <th scope="row" class="create_index">{{@index}}</th>
+                <td>{{this.emp_id}}</td>
+                <td>{{this.first_name}} {{this.middle_name}} {{this.last_name}}</td>
+                <td>{{this.position}}</td>
+                <td>{{this.contri_type}}</td>
+                <td>{{this.remit_amount}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <div class="card">
+        <div class="col-12 d-flex justify-content-end">
+            <h5 class="m-2"><span id="val"></span></h4>
+        </div>
+    </div>
+</div>

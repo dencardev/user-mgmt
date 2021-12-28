@@ -1,0 +1,159 @@
+<div>
+    <a type="button" class="btn btn-secondary" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+        </svg> Back </a>
+    <br><br>
+</div>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">View User</li>
+    </ol>
+</nav>
+
+<div class="view-user px-5">
+    {{#each rows}}
+    <div class="row mb-4">
+        <div class="col text-center">
+            <h2>{{this.first_name}} {{this.middle_name}} {{this.last_name}}</h2>
+            <br>
+            <h5>Employee ID: {{this.emp_id}}</h5>
+            <h5>Contact Number: {{this.phone}}</h5>
+            <h5>Home Address: {{this.address}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col d-flex">
+            <div class="col-3">
+                <div class="card text-white bg-primary mb-3 h-100" style="max-width: 18rem;">
+                    <div class="py-3 px-4 text-center"><img src="/images/emp1.png" alt="" width="110"
+                            class="img-fluid rounded-circle img-thumbnail shadow-sm">
+                    </div>
+                    <h5 class="text-center">Employee Personal Details</h5>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush rounded-3">
+                            <li class="list-group-item">
+                                <h6 class="card-title">Email :</h6>
+                                <p class="card-text">{{this.email}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Sex :</h6>
+                                <p class="card-text">{{this.sex}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Date of Birth :</h6>
+                                <p class="card-text">{{this.dob}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Civil Status :</h6>
+                                <p class="card-text">{{this.civil_status}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card text-white bg-secondary mb-3 h-100" style="max-width: 18rem;">
+                    <div class="py-3 px-4 text-center"><img src="/images/emp2.png" alt="" width="110"
+                            class="img-fluid rounded-circle img-thumbnail shadow-sm">
+                    </div>
+                    <h5 class="text-center">Spouse Details</h5>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush rounded-3">
+                            <li class="list-group-item">
+                                <h6 class="card-title">Full Name :</h6>
+                                <p class="card-text">{{this.sp_firstname}} {{this.sp_middlename}} {{this.sp_lastname}}
+                                </p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Contact Number :</h6>
+                                <p class="card-text">{{this.sp_contact}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Office Name :</h6>
+                                <p class="card-text">{{this.sp_officename}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card text-white bg-success mb-3 h-100" style="max-width: 18rem;">
+                    <div class="py-3 px-4 text-center"><img src="/images/emp3.png" alt="" width="110"
+                            class="img-fluid rounded-circle img-thumbnail shadow-sm">
+                    </div>
+                    <h5 class="text-center">Employment Details</h5>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush rounded-3">
+                            <li class="list-group-item">
+                                <h6 class="card-title">Appointment :</h6>
+                                <p class="card-text">{{this.appointment}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Position :</h6>
+                                <p class="card-text">{{this.position}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Salary Grade :</h6>
+                                <p class="card-text">{{this.salary_grade}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Date of Employment :</h6>
+                                <p class="card-text">{{this.doe}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Last Date of Employment :</h6>
+                                <p class="card-text">{{this.ldoe}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Eligible :</h6>
+                                <p class="card-text">{{this.eligible}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Eligibility :</h6>
+                                <p class="card-text">{{this.eligibility}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card text-white bg-danger mb-3 h-100" style="max-width: 18rem;">
+                    <div class="py-3 px-4 text-center"><img src="/images/emp4.png" alt="" width="110"
+                            class="img-fluid rounded-circle img-thumbnail shadow-sm">
+                    </div>
+                    <h5 class="text-center">Benefits Details</h5>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush rounded-3">
+                            <li class="list-group-item">
+                                <h6 class="card-title">TIN Number :</h6>
+                                <p class="card-text">{{this.tin_num}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">PhilHealth Number :</h6>
+                                <p class="card-text">{{this.philhealth}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">Pag-Ibig Number :</h6>
+                                <p class="card-text">{{this.pagibig}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">GSIS Number :</h6>
+                                <p class="card-text">{{this.gsis}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h6 class="card-title">SSS Number :</h6>
+                                <p class="card-text">{{this.sss}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

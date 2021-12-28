@@ -1,0 +1,164 @@
+<div>
+    <a type="button" class="btn btn-secondary" href="/leavemgmt"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+            height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+        </svg> Back </a>
+    <br>
+</div>
+
+<h1>Leave Management</h1>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/leavemgmt">Leave Management</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Leave Entry</li>
+    </ol>
+</nav>
+
+<div class="card mb-2">
+    <form method="POST" enctype="multipart/form-data" action="/leavemgmt">
+        <div class="row p-3">
+            <div class="col-3">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        id="employee_id" placeholder="Employee ID" name="emp_id" maxlength="7" required
+                        onkeyup="filterEmployee()" onkeydown="filterEmployee()">
+                    <label for="floatingInput">Click to Select Employee</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="empl_fullname" value="" placeholder="Full Name"
+                        name="empl_fullname" disabled>
+                    <label for="floatingInput">Full Name</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="empl_position" value="" placeholder="Position"
+                        name="empl_position" disabled>
+                    <label for="floatingInput">Position</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="empl_apointment" value="" placeholder="Appointment"
+                        name="empl_apointment" disabled>
+                    <label for="floatingInput">Appointment</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating">
+                    <select class="form-select" id="leave_type" name="leave_type"
+                        aria-label="Floating label select example">
+                        <option value="{{this.leave_type}}" hidden="hidden" selected>{{this.leave_type}}
+                        </option>
+                        <option value="Sick Leave">Sick Leave</option>
+                        <option value="Vacation Leave">Vacation Leave</option>
+                        <option value="Special Leave">Special Leave</option>
+                    </select>
+                    <label for="floatingSelectGrid">Type of Leave</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating mb-3">
+                    <input type="date" id="leave_start" name="leave_start" class="form-control"
+                        value="{{this.leave_start}}" required>
+                    <label for="leave_start">Start of Leave:</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating mb-3">
+                    <input type="date" id="leave_end" name="leave_end" class="form-control" value="{{this.leave_end}}"
+                        required>
+                    <label for="leave_end">End of Leave:</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="num_days" value="{{num_days}}"
+                        placeholder="Number of Days" name="num_days" onclick="calc()" required>
+                    <label for="floatingInput">Click here to calculate</label>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="remarks" value="{{remarks}}" placeholder="Remarks"
+                        name="remarks">
+                    <label for="floatingInput">Remarks</label>
+                </div>
+            </div>
+
+            <center>
+                <div class="col-12 d-grid align-center">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </center>
+        </div>
+    </form>
+</div>
+
+<!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Please Select Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 d-flex justify-content-end">
+                    <form class='d-flex' method="POST" action="/" novalidate>
+                        <input class='form-control me-2' type='text' placeholder='Search Name of Employee' name="search"
+                            aria-label='Search Name of Employee' id="myInput" onkeyup="myFunction()" />
+                    </form>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped" id="myTable">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Emp_ID</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Appointment</th>
+                                <th scope="col">Date of Employment</th>
+                                <th scope="col" class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each rows}}
+                            <tr>
+                                <td scope="row" class="create_index">{{@index}}</td>
+                                <td>{{this.emp_id}}</td>
+                                <td>{{this.first_name}} {{this.middle_name}} {{this.last_name}}</td>
+                                <td>{{this.position}}</td>
+                                <td>{{this.appointment}}</td>
+                                <td>{{this.doe}}</td>
+                                <td class="text-end">
+                                    <a href="/leavemgmt" type="button" id="info" value="Show Table Data"
+                                        onclick="showTableData()" class="btn btn-success btn-small"
+                                        data-bs-dismiss="modal">
+                                        Select</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

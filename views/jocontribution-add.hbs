@@ -1,0 +1,189 @@
+<div>
+    <a type="button" class="btn btn-secondary" href="/jocontri"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+            height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+        </svg> Back </a>
+    <br>
+</div>
+
+<h1>JO Contribution</h1>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/jocontri">JO Contribution</a></li>
+        <li class="breadcrumb-item active" aria-current="page">JO Contribution Entry</li>
+    </ol>
+</nav>
+
+<br>
+<div class="card">
+    <form method="POST" enctype="multipart/form-data" action="/jocontri">
+        <div class="row p-3">
+            <div class="col-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        id="employee_id" placeholder="Employee ID" name="emp_id" maxlength="7" required
+                        onkeyup="filterEmployee()" onkeydown="filterEmployee()">
+                    <label for="floatingInput">Click to Select Employee</label>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="empl_fullname" value="" placeholder="Full Name"
+                        name="empl_fullname" disabled>
+                    <label for="floatingInput">Full Name</label>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="empl_position" value="" placeholder="Position"
+                        name="empl_position" disabled>
+                    <label for="floatingInput">Position</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating mb-4">
+                    <input type="date" id="collect_date" name="collect_date" class="form-control"
+                        value="{{this.collect_date}}">
+                    <label for="birthday">Date of Collection</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating">
+                    <select class="form-select" id="contri_type" name="contri_type"
+                        aria-label="Floating label select example">
+                        <option value="{{this.contri_type}}" hidden="hidden" selected>{{this.contri_type}}</option>
+                        <option value="SSS">SSS</option>
+                        <option value="PhilHealth">PhilHealth</option>
+                        <option value="Pag-Ibig">Pag-Ibig</option>
+                        <option value="GSIS">GSIS</option>
+                    </select>
+                    <label for="floatingSelectGrid">Type of Contribution</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-floating mb-4">
+                    <input type="date" id="remit_date" name="remit_date" class="form-control"
+                        value="{{this.remit_date}}">
+                    <label for="birthday">Date of Remittance</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating mb-4">
+                    <input type="text" class="form-control" id="floatingInput" value="{{this.remit_amount}}"
+                        placeholder="Remittance Amount" name="remit_amount">
+                    <label for="floatingInput">Remittance Amount</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-floating mb-4">
+                    <input type="text" class="form-control" id="floatingInput" value="{{this.prn_num}}"
+                        placeholder="PRN Number" name="prn_num">
+                    <label for="floatingInput">PRN Number</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-floating mb-4">
+                    <input type="text" class="form-control" id="floatingInput" value="{{this.ref_num}}"
+                        placeholder="Reference Number" name="ref_num">
+                    <label for="floatingInput">Reference Number</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-floating">
+                    <select class="form-select" id="period" name="period" aria-label="Floating label select example">
+                        <option value="{{this.period}}" hidden="hidden" selected>{{this.period}}</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                    <label for="floatingSelectGrid">Period</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-floating mb-4">
+                    <input type="text" class="form-control" id="floatingInput" value="{{this.paid_thru}}"
+                        placeholder="Paid Thru" name="paid_thru">
+                    <label for="floatingInput">Paid Thru</label>
+                </div>
+            </div>
+
+            <center>
+                <div class="col-12 d-grid align-center">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </center>
+        </div>
+    </form>
+</div>
+
+<!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Please Select Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 d-flex justify-content-end">
+                    <form class='d-flex' method="POST" action="/" novalidate>
+                        <input class='form-control me-2' type='text' placeholder='Search Name of Employee' name="search"
+                            aria-label='Search Name of Employee' id="myInput" onkeyup="myFunction()" />
+                    </form>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped" id="myTable">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Emp_ID</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Appointment</th>
+                                <th scope="col">Date of Employment</th>
+                                <th scope="col" class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each rows}}
+                            <tr>
+                                <td scope="row" class="create_index">{{@index}}</td>
+                                <td>{{this.emp_id}}</td>
+                                <td>{{this.first_name}} {{this.middle_name}} {{this.last_name}}</td>
+                                <td>{{this.position}}</td>
+                                <td>{{this.appointment}}</td>
+                                <td>{{this.doe}}</td>
+                                <td class="text-end">
+                                    <a href="/leavemgmt" type="button" id="info" value="Show Table Data"
+                                        onclick="showTableData()" class="btn btn-success btn-small"
+                                        data-bs-dismiss="modal">
+                                        Select</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

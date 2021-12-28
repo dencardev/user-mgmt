@@ -1,0 +1,79 @@
+<div>
+    <a type="button" class="btn btn-secondary" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+        </svg> Back to Home</a>
+    <br>
+</div>
+
+<h1>Leave Entry</h1>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Leave Entry</li>
+    </ol>
+</nav>
+
+<br>
+<a class="btn btn-dark" type="button" href="/leavemgmt/leaveentry">
+    + Leave Entry (Click to Add Leave)</a>
+<br>
+<div class="col-12 d-flex justify-content-end">
+    <form class='col-4' method="POST" action="/" novalidate>
+        <div class="form-floating">
+            <input class='form-control' type='text' placeholder='Search Name of Employee' name="search"
+                aria-label='Search Name of Employee' id="myInputleave" onkeyup="myFunctionLeave()" />
+            <label>Search Name of Employee</label>
+        </div>
+    </form>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped display" id="leave_table" summary="Pioneer">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col" onclick="sorting(tbody01, 1)" style="width: auto !important">Emp_ID<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 2)" style="width: auto !important">Full Name<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 3)" style="width: auto !important">Position<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 4)" style="width: auto !important">Appointment<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 5)" style="width: auto !important">Type of Leave<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 6)" style="width: auto !important">Start of Leave<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 7)" style="width: auto !important">End of Leave<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col" onclick="sorting(tbody01, 8)" style="width: auto !important"># of Days<span
+                        style="white-space: nowrap;"><i class="fa fa-fw fa-sort"></span></i></span></th>
+                <th scope="col">Remarks</th>
+            </tr>
+        </thead>
+        <tbody id="tbody01">
+            {{#each rows}}
+            <tr>
+                <th scope="row" class="create_index">{{@index}}</th>
+                <td>{{this.emp_id}}</td>
+                <td>{{this.first_name}} {{this.middle_name}} {{this.last_name}}</td>
+                <td>{{this.position}}</td>
+                <td>{{this.appointment}}</td>
+                <td>{{this.leave_type}}</td>
+                <td>{{this.leave_start}}</td>
+                <td>{{this.leave_end}}</td>
+                <td>{{this.num_days}}</td>
+                <td>{{this.remarks}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <div class="card">
+        <div class="col-12 d-flex justify-content-end">
+            <h5 class="m-2"><span id="val"></span></h4>
+        </div>
+    </div>
+</div>
