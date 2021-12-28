@@ -200,10 +200,15 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingInput"
-                                                value="{{this.eligible}}" placeholder="Eligible" name="eligible">
-                                            <label for="floatingInput">Eligible</label>
+                                        <div class="form-floating">
+                                            <select class="form-select" id="eligible" name="eligible"
+                                                aria-label="Floating label select example">
+                                                <option value="{{this.eligible}}" hidden="hidden" selected>
+                                                    {{this.eligible}}</option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                            <label for="floatingSelectGrid">Eligible</label>
                                         </div>
                                     </div>
                                     <div class="col-6">
