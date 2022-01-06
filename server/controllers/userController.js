@@ -13,25 +13,24 @@ const pool = mysql.createPool({
 //My Function
 
 function myFunction(query, renderpage, passvalue){
+    let query1 = query, renderpage1 = renderpage, passvalue1 = passvalue;
+
     //Connecting to Database
     pool.getConnection((err, connection) => {
         if (err) throw err; // not connected
         console.log(`Connected as ID` + connection.threadId);
 
         //use the connection
-        connection.query(query, (err, rows) => {
+        connection.query(query1, (err, rows) => {
             // When done with the connection, release it
             connection.release();
 
             if(!err){
-                res.render(renderpage, passvalue);
+                res.render(renderpage1, passvalue1);
             }
             else {
                 console.log(err);
             }
-
-            console.log(`The Data from user table: \n`, rows);
-
         });
     });
 };
